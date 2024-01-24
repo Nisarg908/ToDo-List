@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- <% //if(kindOfDay === "Saturday" || kindOfDay === "Sunday") {%>
+        <h1 style="color: purple;"><%= //kindOfDay %> ToDo List</h1>
+    <% //} else {%>
+        <h1 style="color: blue;"><%= //kindOfDay %> ToDo List</h1>
+    <% //}%> -->
+    <div class="box" id="heading">
+        <h1><%= listTitle//kindOfDay %></h1>
+    </div>
+    <div class="box">
+        <% newListItems.forEach((item) => { %>
+            <form action="/delete" method="post">
+                <div class="item">
+                    <input name="checkbox" type="checkbox" value="<%= item._id %>" onChange="this.form.submit()">
+                    <p><%= item.name %></p>
+                </div>
+                <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+            </form>
+        <% }); %>
+            <% //for(var i=0; i<newListItems.length; i++) {%>
+                <!-- <div class="item">
+                    <input type="checkbox">
+                    <p><%= //newListItems[i].name %></p>
+                </div> -->
+            <% //} %>
+
+            <form class="item" action="/" method="post">
+                <input type="text" name="newItem" placeholder="Enter task to complete" autocomplete="off">
+                <button type="submit" name="submitButton" value="<%= listTitle %>">+</button>
+            </form>
+    </div>
+</body>
+</html>
