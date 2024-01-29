@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 // mongoose.connect("mongodb://127.0.0.1:27017/todolistDB");
-mongoose.connect("mongodb+srv://admin-nisarg:nisarg123@atlascluster.lbibydl.mongodb.net/todolistDB?retryWrites=true&w=majority");
+mongoose.connect(MONGODB_URI);
 const db = mongoose.connection;
 
 // Event handler for successful connection
